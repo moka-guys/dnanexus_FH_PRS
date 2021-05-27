@@ -1,0 +1,55 @@
+{
+  "name": "FH_PRS_v1.0",
+  "title": "FH PRS v1.0",
+  "summary": "v1.0 - FH polygenic risk score calculation.",
+
+  "tags": [],
+  "properties": {
+    "github release": "v1.0"
+  },
+  "dxapi": "1.0.0",
+  "inputSpec": [
+    {
+      "name": "VCF",
+      "label": "VCF file",
+      "help": "The VCF file",
+      "class": "file",
+      "patterns": ["*.vcf*"],
+      "optional": false
+    },
+	{
+      "name": "skip",
+      "label": "skip",
+      "help": "Skip this step if not required",
+      "class": "boolean",
+      "default": true,
+      "optional": false
+	  }
+  ],
+  "outputSpec": [
+    {
+      "name": "PRS_output",
+      "label": "PRS output",
+      "help": "Output file.",
+      "class": "file",
+	  "optional": true
+    }
+  ],
+  "runSpec": {
+    "file": "src/code.sh",
+    "release": "16.04",
+    "interpreter": "bash",
+    "distribution": "Ubuntu",
+    "execDepends": [
+    ]
+  },
+  "regionalOptions": {
+    "aws:us-east-1": {
+      "systemRequirements": {
+        "main": {
+          "instanceType": "mem1_ssd1_x2"
+        }
+      }
+    }
+  }
+}
