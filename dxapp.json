@@ -2,8 +2,6 @@
   "name": "FH_PRS_v1.0",
   "title": "FH PRS v1.0",
   "summary": "v1.0 - FH polygenic risk score calculation.",
-
-  "tags": [],
   "properties": {
     "github release": "v1.0"
   },
@@ -11,38 +9,61 @@
   "inputSpec": [
     {
       "name": "VCF",
-      "label": "VCF file",
+      "label": "VCF",
       "help": "The VCF file",
       "class": "file",
-      "patterns": ["*.vcf*"],
+      "patterns": ["*.vcf.gz*"],
       "optional": false
     },
-	{
+    {
+      "name": "BEDfile",
+      "label": "BEDfile",
+      "help": "BEDfile for FH regions",
+      "class": "file",
+      "patterns": ["*.bed*"],
+      "optional": false
+    },
+    {
+      "name": "fasta_file",
+      "label": "fasta_file",
+      "help": "Reference genome",
+      "class": "file",
+      "patterns": ["*.tar"],
+      "optional": false
+    },
+    {
       "name": "skip",
       "label": "skip",
       "help": "Skip this step if not required",
       "class": "boolean",
-      "default": true,
-      "optional": false
-	  }
+      "optional": false,
+      "default": true
+    }
   ],
   "outputSpec": [
     {
       "name": "PRS_output",
       "label": "PRS output",
       "help": "Output file.",
-      "class": "file",
-	  "optional": true
+      "class": "array:file",
+      "optional": true
     }
   ],
   "runSpec": {
-    "file": "src/code.sh",
-    "release": "16.04",
     "interpreter": "bash",
     "distribution": "Ubuntu",
-    "execDepends": [
-    ]
+    "release": "16.04",
+    "version": "0",
+    "file": "src/code.sh"
   },
+  "access": {
+    "network": [
+      "*"
+    ],
+    "project": "CONTRIBUTE",
+    "allProjects": "VIEW"
+  },
+  "ignoreReuse": false,
   "regionalOptions": {
     "aws:us-east-1": {
       "systemRequirements": {
