@@ -8,13 +8,12 @@ if [ $skip == false ];
 		#Grab inputs
 		dx-download-all-inputs --parallel
 		#Get reference genome
-		#dx cat $fasta_file | tar xf - # ~/hs37d5-fasta.tar -> ~/hs37d5.fa
 		dx cat project-ByfFPz00jy1fk6PjpZ95F27J:file-BxVGV9Q022qPQ5f2pbQYqbP4 | tar xf - # ~/hs37d5-fasta.tar -> ~/hs37d5.fa
 		echo "ZIPPED truth VCF unzipping."
 		#Unzip the vcf
 		gzip -d ${VCF_path}
 		#Remove the .gz suffix from truth_vcf filepath
-		vcf_path=$(echo ${VCF_path%.*})
+		vcf_path=${VCF_path%.*}
 		#install tabix
 		apt-get install tabix
 		#Zip VCFs
@@ -24,6 +23,7 @@ if [ $skip == false ];
 		#Index VCFs
 		tabix -p vcf ${vcf_path}
 		#download docker file
+		#The BCFtools docker image is used to convert the GVCF to VCF
 		Docker_file_ID=project-ByfFPz00jy1fk6PjpZ95F27J:file-G55XqF00jy1QkJ174ZzZfzV5
   		dx download ${Docker_file_ID}
 
@@ -37,6 +37,11 @@ if [ $skip == false ];
 
 		docker load < /home/dnanexus/"${Docker_image_file}"
   		echo "Using docker image ${Docker_image_name}"
+		#Convert changes GVCF to VCF
+		#-R flag is for regions of interest
+		#-f reference genome
+		#-0v uncompressed vcf
+		#-o output name
   		docker run -v /home/dnanexus:/home/dnanexus --rm ${Docker_image_name} convert --gvcf2vcf -R $BEDfile_path -f /home/dnanexus/hs37d5.fa -Ov -o ~/out/PRS_output/PRS_output/${vcf_name}.vcf $vcf_path
 
 		#save samplename
