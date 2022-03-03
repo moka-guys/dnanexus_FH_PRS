@@ -8,12 +8,12 @@
   "dxapi": "1.0.0",
   "inputSpec": [
     {
-      "name": "VCF",
-      "label": "VCF",
-      "help": "The VCF file",
+      "name": "GVCF",
+      "label": "GVCF",
+      "help": "The GVCF file",
       "class": "file",
-      "patterns": ["*.vcf.gz*"],
-      "optional": false
+      "patterns": ["*.g.vcf.gz*"],
+      "optional": true
     },
     {
       "name": "BEDfile",
@@ -52,10 +52,16 @@
   "runSpec": {
     "interpreter": "bash",
     "distribution": "Ubuntu",
-    "release": "16.04",
+    "release": "20.04",
     "version": "0",
-    "file": "src/code.sh"
-  },
+    "file": "src/code.sh",
+    "execDepends": [
+    {
+    "name": "tabix", 
+    "package_manager": "apt"
+    }
+  ]
+},
   "access": {
     "network": [
       "*"
