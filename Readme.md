@@ -1,4 +1,4 @@
-# DNAnexus FH PRS v1.0.0
+# DNAnexus FH PRS v1.1.0
 
 ## What does this app do?
 The app takes in a compressed GVCF and uses bcftools convert (https://github.com/samtools/bcftools/releases/tag/1.13) to change it to a uncompressed VCF based on a provided BED file. 
@@ -29,7 +29,7 @@ The samplename is captured from the vcf file name (everything before the first f
 The docker image packaged in the app is loaded and run, with the output written to a subfolder PRS_output/$samplename.txt
 
 ## What does this app output?
-This app outputs a decompressed VCF file adn one text file with three lines. 
+This app outputs a decompressed VCF file and one text file with three lines. 
 Line 1 lists the genotypes, line2 lists the PRS and line 3 lists the risk and the decile.
 The outputs are saved to `/PRS_output`
 
