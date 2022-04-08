@@ -43,7 +43,7 @@ if [ $skip == false ];
 		#save samplename
 		samplename=$vcf_name
 		#Set up FH docker image
-		fh_docker_file_id=project-ByfFPz00jy1fk6PjpZ95F27J:file-G7p1PfQ0jy1bPBJP8kp0VGZp
+		fh_docker_file_id=project-G96gyq80jQVKFXpY8665v3x5:file-G982GPj0jQV4G87x9VXVV4gf
 		dx download ${fh_docker_file_id}
 		fh_docker_image_file=$(dx describe ${fh_docker_file_id} --name)
 		fh_docker_image_name=$(tar xfO "${fh_docker_image_file}" manifest.json | sed -E 's/.*"RepoTags":\["?([^"]*)"?.*/\1/')
