@@ -1,19 +1,19 @@
 {
-  "name": "FH_PRS_v1.0",
-  "title": "FH PRS v1.0",
-  "summary": "v1.0 - FH polygenic risk score calculation.",
+  "name": "FH_PRS_v1.0.1",
+  "title": "FH PRS v1.0.1",
+  "summary": "v1.0.1 - FH polygenic risk score calculation.",
   "properties": {
-    "github release": "v1.0"
+    "github release": "v1.0.1"
   },
   "dxapi": "1.0.0",
   "inputSpec": [
     {
-      "name": "VCF",
-      "label": "VCF",
-      "help": "The VCF file",
+      "name": "GVCF",
+      "label": "GVCF",
+      "help": "The GVCF file",
       "class": "file",
-      "patterns": ["*.vcf.gz*"],
-      "optional": false
+      "patterns": ["*.g.vcf.gz*"],
+      "optional": true
     },
     {
       "name": "BEDfile",
@@ -52,10 +52,16 @@
   "runSpec": {
     "interpreter": "bash",
     "distribution": "Ubuntu",
-    "release": "16.04",
+    "release": "20.04",
     "version": "0",
-    "file": "src/code.sh"
-  },
+    "file": "src/code.sh",
+    "execDepends": [
+    {
+    "name": "tabix", 
+    "version": "1.10.2-3"
+    }
+  ]
+},
   "access": {
     "network": [
       "*"
@@ -68,7 +74,7 @@
     "aws:us-east-1": {
       "systemRequirements": {
         "main": {
-          "instanceType": "mem1_ssd1_x2"
+          "instanceType": "mem1_ssd1_v2_x2"
         }
       }
     }
