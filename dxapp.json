@@ -1,9 +1,9 @@
 {
-  "name": "FH_PRS_v1.0.1",
-  "title": "FH PRS v1.0.1",
-  "summary": "v1.0.1 - FH polygenic risk score calculation.",
+  "name": "FH_PRS_v1.0.2",
+  "title": "FH PRS v1.0.2",
+  "summary": "v1.0.2 - FH polygenic risk score calculation.",
   "properties": {
-    "github release": "v1.0.1"
+    "github release": "v1.0.2"
   },
   "dxapi": "1.0.0",
   "inputSpec": [
