@@ -1,11 +1,11 @@
-# DNAnexus FH PRS v1.0.1
+# DNAnexus FH PRS v1.0.2
 
 ## What does this app do?
 The app takes in a compressed GVCF and uses bcftools convert (https://github.com/samtools/bcftools/releases/tag/1.13) to change it to a uncompressed VCF based on a provided BED file. 
 
 The Bioconda bcftools docker image v1.13 taken from DockerHub, tagged, and saved as a bcftools_v1.13.tar.gz file, saved in the 001_ToolsReferenceData project. The app loads the docker image from the .tar.gz file each time it is run.
 
-The output uncompressed VCF is used as an input to calculate PRS. It uses the dockerised code from [https://github.com/moka-guys/fhprs] v1.0.1
+The output uncompressed VCF is used as an input to calculate PRS. It uses the dockerised code from [https://github.com/moka-guys/fhprs] v1.0.1 saved in the 001_ToolsReferenceData project.
 
 ## What are typical use cases for this app?
 It is used to calculate the polygenic risk score (PRS) for FH samples.
