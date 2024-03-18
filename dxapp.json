@@ -1,0 +1,74 @@
+{
+  "name": "FH_PRS_v1.2.0",
+  "title": "FH PRS v1.2.0",
+  "summary": "v1.2.0 - FH polygenic risk score calculation.",
+  "properties": {
+    "github release": "v1.2.0"
+  },
+  "dxapi": "1.0.0",
+  "inputSpec": [
+    {
+      "name": "GVCF",
+      "label": "GVCF",
+      "help": "The GVCF file",
+      "class": "file",
+      "patterns": ["*.g.vcf.gz*"],
+      "optional": true
+    },
+    {
+      "name": "BEDfile",
+      "label": "BEDfile",
+      "help": "BEDfile for FH regions",
+      "class": "file",
+      "patterns": ["*.bed*"],
+      "optional": false
+    },
+    {
+      "name": "skip",
+      "label": "skip",
+      "help": "Skip this step if not required",
+      "class": "boolean",
+      "optional": false,
+      "default": true
+    }
+  ],
+  "outputSpec": [
+    {
+      "name": "PRS_output",
+      "label": "PRS output",
+      "help": "Output file.",
+      "class": "array:file",
+      "optional": true
+    }
+  ],
+  "runSpec": {
+    "interpreter": "bash",
+    "execDepends": [
+      {
+        "name": "tabix",
+        "version": "1.10.2-3"
+      }
+    ],
+    "distribution": "Ubuntu",
+    "release": "20.04",
+    "version": "0",
+    "file": "src/code.sh"
+  },
+  "access": {
+    "network": [
+      "*"
+    ],
+    "project": "CONTRIBUTE",
+    "allProjects": "VIEW"
+  },
+  "ignoreReuse": false,
+  "regionalOptions": {
+    "aws:us-east-1": {
+      "systemRequirements": {
+        "main": {
+          "instanceType": "mem1_ssd1_v2_x2"
+        }
+      }
+    }
+  }
+}
