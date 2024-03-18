@@ -42,6 +42,19 @@
     }
   ],
   "runSpec": {
+    "executionPolicy": {
+      "restartOn": {
+      | "JobTimeoutExceeded": 1,
+        "JMInternalError": 1,
+        "UnresponsiveWorker": 2,
+        "ExecutionError": 1
+      }
+    },
+    "timeoutPolicy": {
+      "*": {
+        "hours": 6
+      }
+    },
     "interpreter": "bash",
     "execDepends": [
       {
