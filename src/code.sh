@@ -16,7 +16,7 @@ if [ $skip == false ];
 		Docker_file_ID=project-ByfFPz00jy1fk6PjpZ95F27J:file-G55XqF00jy1QkJ174ZzZfzV5
   		dx download ${Docker_file_ID}
 		# Download FH docker image from 001
-		fh_docker_file_id=project-GbZv0BQ04QXpf3by3XZ3PZJQ:file-GgFYgVj04QXfyk7qz14xqX5X
+		fh_docker_file_id=project-GbZv0BQ04QXpf3by3XZ3PZJQ:file-Gjx4gb004QXvKB40f2fyYJjV
 		dx download ${fh_docker_file_id}
 
 		mark-section "preparing input VCF for bcftools"
