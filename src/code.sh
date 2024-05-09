@@ -10,8 +10,9 @@ if [ $skip == false ];
 		# make output folder
 		mkdir -p ~/out/PRS_output/PRS_output
 		# Get reference genome and dearchive
-		dx cat project-GbZv0BQ04QXpf3by3XZ3PZJQ:file-GgBJb9007zPpqjf9b5B1xpxk | tar xfz - # ~/GRCh38_full_analysis_set_plus_decoy_hla.fasta-index.tar.gz -> ~/GRCh38_full_analysis_set_plus_decoy_hla.fasta-index.fa
-		# download BCFtools docker
+  		# ~/GRCh38_full_analysis_set_plus_decoy_hla.fasta-index.tar.gz -> ~/GRCh38_full_analysis_set_plus_decoy_hla.fasta-index.fa, .fai, .dict
+		dx cat project-GbZv0BQ04QXpf3by3XZ3PZJQ:file-GgBJb9007zPpqjf9b5B1xpxk | tar xfz - 
+  		# download BCFtools docker
 		# The BCFtools docker image is used to convert the GVCF to VCF
 		Docker_file_ID=project-ByfFPz00jy1fk6PjpZ95F27J:file-G55XqF00jy1QkJ174ZzZfzV5
   		dx download ${Docker_file_ID}
