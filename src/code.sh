@@ -10,13 +10,13 @@ if [ $skip == false ];
 		# make output folder
 		mkdir -p ~/out/PRS_output/PRS_output
 		# Get reference genome and dearchive
-		dx cat project-ByfFPz00jy1fk6PjpZ95F27J:file-BxVGV9Q022qPQ5f2pbQYqbP4 | tar xf - # ~/hs37d5-fasta.tar -> ~/hs37d5.fa
+		dx cat project-J32193pK9yGfjP2GyZ94KZf4:file-J34ZP3BK9yGyFjb25XpxJK3p | tar xf - # ~/hs37d5-fasta.tar -> ~/hs37d5.fa
 		# download BCFtools docker
 		# The BCFtools docker image is used to convert the GVCF to VCF
-		Docker_file_ID=project-ByfFPz00jy1fk6PjpZ95F27J:file-G55XqF00jy1QkJ174ZzZfzV5
+		Docker_file_ID=project-J32193pK9yGfjP2GyZ94KZf4:file-J342zZBK9yGjv1019Xf6k3yk
   		dx download ${Docker_file_ID}
 		# Download FH docker image from 001
-		fh_docker_file_id=project-ByfFPz00jy1fk6PjpZ95F27J:file-G982GPj0jQV4G87x9VXVV4gf
+		fh_docker_file_id=project-J32193pK9yGfjP2GyZ94KZf4:file-J342zp2K9yGq14PQkQjP784p
 		dx download ${fh_docker_file_id}
 		
 		mark-section "preparing input VCF for bcftools"

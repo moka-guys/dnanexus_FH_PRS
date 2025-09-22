@@ -1,4 +1,4 @@
-# DNAnexus FH PRS v1.0.2
+# DNAnexus FH PRS v1.0.3
 
 ## What does this app do?
 The app takes in a compressed GVCF and uses bcftools convert (https://github.com/samtools/bcftools/releases/tag/1.13) to change it to a uncompressed VCF based on a provided BED file. 
